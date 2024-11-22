@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is page for Dna Sequence analyzer</h1>
+    <h2>For protien analyzer <a href="{% url 'myprotein' %}">link</a> </h2>
+    <form method="post">
+        {% csrf_token %}  <!-- Important for security in Django forms -->
+        <input type="text" name="info_sequence" placeholder="Enter the info" style="width: 300px;">
+        <br>
+        <textarea rows="10" cols="50" name="dna_sequence"></textarea>
+        <br>
+        <button type="submit">Submit</button>
+
+
+    </form>
+
+    <h4>information </h4>
+    <p>{{information}}</p>
+
+
+
+    <p>{{ new_sequence.dna_sequence}}</p>
+
+    <h5>DNA SEQUENCE</h5>
+    <p>{{clean_sequence1}}</p>
+    <h5>Complimentary SEQUENCE</h5>
+    <p>{{comp}}</p>
+    <h5>Reverse Complimentary</h5>
+    <p>{{reverse_comp}}</p>
+
+
+    <h4>After Transcription (messanger RNA)</h4>
+    <p>{{trans}}</p>
+    <h4>Back Transcription</h4>
+    <p>{{rever_trans}}</p>
+    
+    <h4>Translate into Protein  * sign indicate stop codon </h4>
+    <p>{{translat_protein}}</p>
+    
+    <h4>Translation into protien make stop codon</h4>
+    <p>{{translat_protein_stop}}</p>
+
+    <h4>GC content</h4>
+    <p> The GC content is {{gc}} % percentage</p>
+</body>
+</html>

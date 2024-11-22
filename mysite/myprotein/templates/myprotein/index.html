@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    <h1>This is protein Sequence analyzer</h1>
+    <h2>For DNA analyzer <a href="{% url 'index' %}">link</a> </h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="info_sequence" placeholder="enter the info" style="width: 300px;">
+        <br>
+        <textarea rows="10" cols="50" name="protein_sequence"></textarea>
+        <br>
+        <button type="submit" id="submit1">Submit</button>
+
+    </form>
+
+
+    <b>{{new_sequence.protein_sequence}}</b>
+
+    <h4>Only protein_sequence</h4>
+    <br>
+    <p>Molecular Weight: <b>{{weight}}</b> Da</p>
+    <br>
+    <p>Isoelectric point: <b>{{ip}}</b></p>
+    <br>
+    <p>Extinction Coefficient: <b>{{extinction_coefficient}}</b></p>
+    <p>instability_index:<b>{{instability_index}}</b></p>
+    <p>gravy: <b>{{gravy}}</b></p>
+    <p>aliphatic_idx: <b>{{aliphatic_idx}}</b></p>
+    <p>aromatic_ratio_value: <b>{{aromatic_ratio_value}}</b></p>
+    <p>hydrophobic_polarity_value: <b>{{hydrophobic_polarity_value}}</b></p>
+    
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+            var pElements = document.querySelectorAll('p');
+            var bElements = document.querySelectorAll('b');
+            var click = document.querySelector("#submit1");
+
+            click.addEventListener('click', function(event){
+                // Prevent form submission and page reload
+                
+
+                // Change the color of all <p> elements to red
+                pElements.forEach(function(p) {
+                    p.style.color = 'red';
+                });
+
+                // Change the color of all <b> elements to blue
+                bElements.forEach(function(b) {
+                    b.style.color = 'blue';
+                });
+            });
+        });
+    
+
+
+
+</script>
+
+</html>
